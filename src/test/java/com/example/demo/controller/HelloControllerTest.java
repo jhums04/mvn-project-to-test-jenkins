@@ -1,21 +1,25 @@
 package com.example.demo.controller;
 
-import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.extension.ExtendWith;
+import org.mockito.InjectMocks;
+import org.mockito.Mock;
+import org.mockito.Mockito;
+import org.mockito.junit.jupiter.MockitoExtension;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
- class HelloControllerTest {
 
-    private HelloControlelr helloController;
+@ExtendWith(MockitoExtension.class)
+class HelloControllerTest {
 
-    @BeforeEach
-    void setUp() {
-        helloController = new HelloControlelr();
-    }
+    @InjectMocks
+    HelloControlelr controlelr;
 
     @Test
-    void testSayHello() {
-        String response = helloController.sayHello();
-        assertEquals("Hiiiiiiiiiii", response, "The greeting should be 'Hiiiiiiiiiii'");
+    void helloTest() {
+        String expected = "Hiiiiiiiiiii";
+        assertEquals(expected, controlelr.sayHello());
+
     }
+
 }
